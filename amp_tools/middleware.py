@@ -3,23 +3,10 @@ import re
 from amp_tools.settings import settings
 from amp_tools import set_amp_detect
 
+from django.utils.deprecation import MiddlewareMixin
 
-class AMPDetectionMiddleware(object):
 
-    def __init__(self, get_response=None):
-        self.get_response = get_response
-        # One-time configuration and initialization.
-
-    def __call__(self, request):
-        # Code to be executed for each request before
-        # the view (and later middleware) are called.
-
-        response = self.get_response(request)
-
-        # Code to be executed for each request/response after
-        # the view is called.
-
-        return response
+class AMPDetectionMiddleware(MiddlewareMixin):
 
     def process_request(self, request):
         if settings.AMP_TOOLS_GET_PARAMETER in request.GET:
