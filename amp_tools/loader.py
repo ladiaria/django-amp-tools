@@ -47,7 +47,8 @@ class Loader(BaseLoader):
                 pass
         raise TemplateDoesNotExist("Tried %s" % template_name)
 
-    def get_template_sources(self, template_name):
+    def get_template_sources_duplicated(self, template_name):
+        # TODO: why this method was duplicated?
         template_name = self.prepare_template_name(template_name)
         for loader in self.template_source_loaders:
             if hasattr(loader, 'load_template_source'):
