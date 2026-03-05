@@ -2,6 +2,7 @@ build/
 *.py[cod]
 doc/_build
 *.sublime-*
+.cursorignore
 /help-man
 dist/
 ~$
